@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raten-Kalkulator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="ratenkalkulator.css">
+</head>
+<body>
+
+<header>
+  <span class="site-id">raten<span>-kalkulator</span></span>
+</header>
+
+<main>
+
+  <!-- Eingabe -->
+  <p class="section-label">Eingabe</p>
+
+  <div class="input-panel">
+    <div class="input-grid">
+      <div class="field">
+        <label for="betrag">Kreditsumme</label>
+        <input type="number" id="betrag" placeholder="10000" min="0" step="100">
+        <span class="unit">€</span>
+      </div>
+      <div class="field">
+        <label for="laufzeit">Laufzeit</label>
+        <input type="number" id="laufzeit" placeholder="60" min="1" step="1">
+        <span class="unit">Monate</span>
+      </div>
+      <div class="field">
+        <label for="zins">Jahreszinssatz</label>
+        <input type="number" id="zins" placeholder="5.0" min="0" step="0.1">
+        <span class="unit">% p.a.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ergebnisse -->
+  <p class="section-label">Ergebnis</p>
+
+  <div class="result-grid">
+    <div class="result-card">
+      <span class="result-label">Monatliche Rate</span>
+      <span class="result-value accent" id="res-rate">—</span>
+      <span class="result-sub">pro Monat</span>
+    </div>
+    <div class="result-card">
+      <span class="result-label">Gesamtbetrag</span>
+      <span class="result-value" id="res-gesamt">—</span>
+      <span class="result-sub">alle Zahlungen</span>
+    </div>
+    <div class="result-card">
+      <span class="result-label">Zinskosten</span>
+      <span class="result-value" id="res-zins">—</span>
+      <span class="result-sub" id="res-zinsanteil">Zinsanteil</span>
+    </div>
+  </div>
+
+  <!-- Tilgungsplan -->
+  <div class="tilgung-section">
+    <button class="toggle-btn" id="tilgung-btn">
+      <span class="arrow">▶</span><span class="btn-label">Tilgungsplan anzeigen</span>
+    </button>
+    <div class="tilgung-table-wrap" id="tilgung-wrap">
+      <table id="tilgung-table">
+        <thead>
+          <tr>
+            <th>Monat</th>
+            <th>Rate</th>
+            <th>Zinsen</th>
+            <th>Tilgung</th>
+            <th>Restschuld</th>
+          </tr>
+        </thead>
+        <tbody id="tilgung-body"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Vergleichsmodus -->
+  <div class="vergleich-section">
+    <div class="vergleich-header">
+      <p class="section-label" style="margin-bottom:0">Vergleich</p>
+      <button class="btn btn-accent" id="add-szenario-btn">+ Szenario hinzufügen</button>
+    </div>
+    <div class="vergleich-grid" id="vergleich-grid"></div>
+  </div>
+
+</main>
+
+<footer>
+  <span class="footer-note">raten-kalkulator</span>
+  <span class="footer-note" id="footer-info">—</span>
+</footer>
+
+<script src="ratenkalkulator.js"></script>
+</body>
+</html>
